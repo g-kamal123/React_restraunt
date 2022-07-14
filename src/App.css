@@ -1,38 +1,106 @@
-.App {
-  text-align: center;
+*,*::after,*::before{
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  margin: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card{
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 2rem;
+  box-shadow: 0 4px 8px rgb(0,0,0,0.5);
+  width: max-content;
+  border-radius: 4px;
+  border: 2px solid rgb(231, 204, 204);
+  padding: 2%;
+  width: 25rem;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.image_cuisine{
+  display: flex;
+  flex-direction: column; 
+  gap: 0.7rem;
+}
+.image_cuisine img{
+  height: 5rem;
+  width: 5rem;
+  border-radius: 5px;
+}
+.restrauntName_address{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 1rem;
+}
+.restrauntName_address .name{
+  font-size: medium;
+  font-weight: bold;
+}
+.restrauntName_address address{
+  display: block;
+  /* flex-wrap: wrap; */
+}
+ul{
+  list-style: none;
+}
+li{
+  margin-top: 2%;
+  cursor: pointer;
+}
+td{
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+}
+.page{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+}
+.page_image img{
+  height: 25rem;
+  width: 25rem;
+  border: 1px solid black;
+}
+.page_show{
+  background-color: black;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.page_rest{
+  font-size: larger;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  flex:1 0 0;
 }
+.page_rest .name{
+  font-size: 2rem;
+  font-weight: bold;
+}
+.page_rest .address{
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+th{
+  font-size: 1.4rem;
+  
+}
+.login{
+  display: flex;
+}
+.login img{
+  height: 25rem;
+  width: 25rem;
+}
+.login form{
+  display: table;
+}
+.login p{
+  display: table-row;
+}
+.login input,label{
+  display: table-cell;
+}
+.login_form{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(214, 208, 208);
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgb(0,0,0,0.5);
 }
