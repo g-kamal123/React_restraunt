@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchResult from './SearchResult'
 import Data from './Data.json'
+import HomeSub from './HomeSub'
 
 export class Home extends Component {
     state = {
@@ -67,14 +68,17 @@ export class Home extends Component {
     }
   render() {
     return (
-      <div>
-        <input value={this.state.enteredText} onChange={this.inputHandler}/>
         <div>
+      <div className='searchResult'>
+        <input className='searchInput' value={this.state.enteredText} onChange={this.inputHandler} placeholder='search restraunt,area,cuisine'/>
+        <div className='resultLists'>
             <SearchResult userHint={this.state.resName}
             detailPage={this.detailPage1}/>
         </div>
-        {/* <ul>{this.state.resName.map((item)=>
-        <li>{item}</li>)}</ul> */}
+      </div>
+      <div className='print_arr'>
+      <HomeSub detailPage={this.detailPage1}/>
+      </div>
       </div>
     )
   }

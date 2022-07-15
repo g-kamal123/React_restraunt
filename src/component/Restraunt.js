@@ -3,11 +3,12 @@ import Home from './Home'
 import Page from './Page'
 import Data from './Data.json'
 import Login from './Login'
+import Navbar from './Navbar'
 
 export class Restraunt extends Component {
     state = {
         id:0,
-        page:'',
+        page:'home',
         pageArr:[],
         image:'',
         restDetail:[],
@@ -31,7 +32,7 @@ export class Restraunt extends Component {
         // console.log(item))
         console.log(p)
         this.setState({
-            page:1,
+            page:'page',
             id:val,
             pageArr:c,
             image:p,
@@ -41,20 +42,23 @@ export class Restraunt extends Component {
     }
     checkSearchPage = ()=>{
         this.setState({
-            page:0
+            page:'home'
         })
     }
   render() {
     return (
       <div>
         {
+        this.state.page==='home'|| this.state.page==='page' ? <Navbar /> : null
+        }
+        {
             this.state.page==='' ? <Login goToSearchPage={this.checkSearchPage}/> : null
         }
         {
-            this.state.page===0 ? <Home detailPage2={this.detail}/> :null
+            this.state.page==='home' ? <Home detailPage2={this.detail}/> :null
         }
         {
-        this.state.page === 1 ? <Page pageid={this.state.pageArr}
+        this.state.page === 'page' ? <Page pageid={this.state.pageArr}
         img ={this.state.image}
         rest={this.state.restDetail}
         rev={this.state.review}/> : null

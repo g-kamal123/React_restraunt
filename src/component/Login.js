@@ -83,15 +83,17 @@ export class Login extends Component {
     }
   render() {
     return (
+      <div className='login_background'>
+        <marquee>**Get Delivery free for *first <b>3</b> orders</marquee>
       <div className='login'>
-        <div>
-            <img src='https://d1csarkz8obe9u.cloudfront.net/posterpreviews/restaurant-offer-post-design-template-849b9069fd618342e2592dd9992ee7b5_screen.jpg?ts=1591366091' alt=''/>
-        </div>
+        <div class="sign">
+      <span class="fast-flicker">DE</span>lic<span class="flicker">iO</span>us
+    </div>
         <div className='login_form'>
-        <div>Login/SignUp</div>
+        <div className='textLogin'>Login/SignUp</div>
         {
             this.state.login ==='login' ? <>
-            <span>{this.state.badCredential}</span>
+            <span className='badcredentials'>{this.state.badCredential}</span>
             <form action='#'>
             <p>
                 <label htmlFor='email'>Email:</label>
@@ -103,8 +105,11 @@ export class Login extends Component {
             </p>
             <button onClick={this.loginHandler}>Login</button>
         </form>
+        <div>
         <span>New User?</span>
-        <a href='#1' onClick={this.registerHandler}>Register Here</a></>: null
+        <a href='#1' onClick={this.registerHandler}>Register Here</a>
+        </div>
+        </>: null
         }
         {
             this.state.login ==='register' ? <><form action='#'>
@@ -119,12 +124,13 @@ export class Login extends Component {
             <p>
                 <label htmlFor='passwordcr'>Confirm Password:</label>
                 <input id='passwordcr' onChange={this.cnfPassHandler}/>
-                <span style={{color:this.state.color}}>{this.state.passwordMatched}</span>
+                <p style={{color:this.state.color}}>{this.state.passwordMatched}</p>
             </p>
             <button onClick={this.registerDataHandler}>Register</button>
             </form></> : null
         }
         </div>
+      </div>
       </div>
     )
   }

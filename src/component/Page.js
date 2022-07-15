@@ -36,8 +36,8 @@ export class Page extends Component {
             </>   
         })     
         }
-        <div>hgfggudh</div>
         </div>
+        <div>render ho rha hai</div>
       </div>
     )
   }
