@@ -44,6 +44,7 @@ export class Login extends Component {
             registermsg:'registered successfully',
             login:'register'
         })
+        this.props.datareg(arr)
     }
     toLogin =(event)=>{
         event.preventDefault();
@@ -68,7 +69,7 @@ export class Login extends Component {
     loginHandler = (event)=>{
         event.preventDefault()
         var chk
-        this.state.registeredUserArray.map((item)=>{
+        this.props.array.map((item)=>{
             if(this.state.loginEmail===item.email && this.state.loginPass===item.pass)
             chk = 1
         })
@@ -84,7 +85,8 @@ export class Login extends Component {
     signUpEmailHandler =(event)=>{
         var inp = event.target.value
         this.setState({
-            signUpEmail:inp
+            signUpEmail:inp,
+            badCredential:''
         })
     }
     signUpPassHandler =(event)=>{
@@ -125,11 +127,11 @@ export class Login extends Component {
             <form action='#'>
             <p>
                 <label htmlFor='email'>Email:</label>
-                <input id='email' onChange={this.loginEmailHandler}/>
+                <input id='email' type='email' onChange={this.loginEmailHandler}/>
             </p>
             <p>
                 <label htmlFor='password'>Password:</label>
-                <input id='password' onChange={this.loginPassHandler}/>
+                <input id='password' type='password' onChange={this.loginPassHandler}/>
             </p>
             <button onClick={this.loginHandler}>Login</button>
         </form>
@@ -142,21 +144,21 @@ export class Login extends Component {
         {
             this.state.login ==='register' ? <>
             <span className='badcredentials' style={{color:this.state.regcolor}}>{this.state.registermsg}</span>
-            <form action='#'>
+            <form action='#' onSubmit={this.registerDataHandler}>
             <p>
                 <label htmlFor='emailr'>Email:</label>
-                <input id='emailr' onChange={this.signUpEmailHandler}/>
+                <input id='emailr' type='email' onChange={this.signUpEmailHandler}/>
             </p>
             <p>
                 <label htmlFor='passwordr'>Password:</label>
-                <input id='passwordr' onChange={this.signUpPassHandler}/>
+                <input id='passwordr' type='password' onChange={this.signUpPassHandler}/>
             </p>
             <p>
                 <label htmlFor='passwordcr'>Confirm Password:</label>
-                <input id='passwordcr' value={this.state.signUpcnfPass} onChange={this.cnfPassHandler}/>
+                <input id='passwordcr' type='password' value={this.state.signUpcnfPass} onChange={this.cnfPassHandler}/>
                 <p style={{color:this.state.color}}>{this.state.passwordMatched}</p>
             </p>
-            <button onClick={this.registerDataHandler}>Register</button>
+            <button type='submit'>Register</button>
             </form>
             <div>
                 <a href='#12' onClick={this.toLogin}>Login</a>

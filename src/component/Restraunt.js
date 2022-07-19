@@ -12,7 +12,8 @@ export class Restraunt extends Component {
         pageArr:[],
         image:'',
         restDetail:[],
-        review:''
+        review:'',
+        regArray:[{email:'kamal@gmail.com' , pass:'1234'}]
     }
     detail = (val,item1)=>{
         var c
@@ -55,6 +56,11 @@ export class Restraunt extends Component {
             page:''
         })
     }
+    regHandler = (val)=>{
+        this.setState({
+            regArray:val
+        })
+    }
   render() {
     return (
       <div>
@@ -63,7 +69,9 @@ export class Restraunt extends Component {
         logout={this.goToLogin}/> : null
         }
         {
-            this.state.page==='' ? <Login goToSearchPage={this.checkSearchPage}/> : null
+            this.state.page==='' ? <Login goToSearchPage={this.checkSearchPage}
+            datareg={this.regHandler}
+            array={this.state.regArray}/> : null
         }
         {
             this.state.page==='home' ? <Home detailPage2={this.detail}/> :null
