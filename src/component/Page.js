@@ -6,38 +6,41 @@ export class Page extends Component {
   render() {
     return (
       <div className='page'>
-        <div className='page_image'>
-            <img src={this.props.img} alt=''/>
-        </div>
-        <div className='page_show'>
-            <div className='page_rest'>
+        <div className='page_image' style={{  
+                backgroundImage: "linear-gradient(to top,rgba(255,255,255,0.4),rgba(255,255,255,0)),url(" + `${this.props.img}` + ")",
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
+              }}>
+              <div className='page_rest'>
                 <span className='name'>{this.props.rest.name}</span>
                 <span className='address'>{this.props.rest.address}</span>
-                <span className='cuisine'>Cuisine:{this.props.rest.cuisine}</span>
+                <span className='cuisine'>Cuisine:{this.props.rest.cuisine_type}</span>
             </div>
+        </div>
+        <div className='page_show'>
+          <div className='opshours'><span>-/-Operational_Hours-/-</span></div> 
             <table>
              <tbody> 
-                <tr><th colSpan = "2">Operational_Hours</th></tr>
                 {/* {console.log(this.props.pageid)} */}
                 {Object.keys(this.props.pageid).map((item)=>
                 <tr><td>{item}</td><td>{this.props.pageid[item]}</td></tr>)}
              </tbody>
             </table>
         </div>
-        <div>
+        <div className='reviews_parent'>
         { 
         this.props.rev.map((item)=>{
-           return <>
+           return <div className='reviews'>
             {/* {console.log(item.name)} */}
-            <span>{item.name}</span>
-            <span>{item.date}</span>    
-            <span>{item.rating}</span>
+            <span className='name'>{item.name}</span>
+            <span>{item.date}</span>
+            {[...Array(item.rating)].map((e,i)=><span key={i}><i class="fa fa-star" aria-hidden="true" style={{color:'red'}}></i></span>)}
             <p>{item.comments}</p>   
-            </>   
+            </div>   
         })     
         }
         </div>
-        <div>render ho rha hai</div>
       </div>
     )
   }

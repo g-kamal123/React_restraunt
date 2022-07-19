@@ -10,7 +10,10 @@ export class Login extends Component {
         signUpEmail:'',
         signUpPass:'',
         passwordMatched:'',
-        color:''
+        color:'',
+        registermsg:'',
+        regcolor:'',
+        signUpcnfPass:''
     }
     registerHandler = (event)=>{
         event.preventDefault()
@@ -19,6 +22,31 @@ export class Login extends Component {
         })
     }
     registerDataHandler = (event)=>{
+        event.preventDefault()
+        if(this.state.signUpEmail==='' || this.state.signUpPass==='' || this.state.signUpcnfPass===''){
+            var alert = 'Enter all the fields';
+            this.setState({
+                registermsg:alert,
+                regcolor:'red',
+                login:'register'
+            })
+            return
+        }
+        if(this.state.passwordMatched==='Password Not Matched'){
+            return
+        }
+        var arr = [...this.state.registeredUserArray]
+        var inp = {email:this.state.signUpEmail,pass:this.state.signUpPass}
+        arr = [...arr,inp]
+        this.setState({
+            registeredUserArray:arr,
+            regcolor:'green',
+            registermsg:'registered successfully',
+            login:'register'
+        })
+    }
+    toLogin =(event)=>{
+        event.preventDefault();
         this.setState({
             login:'login'
         })
@@ -76,7 +104,7 @@ export class Login extends Component {
             color = 'red'
         }
         this.setState({
-            signUpEmail:inp,
+            signUpcnfPass:inp,
             passwordMatched:match,
             color:color
         })
@@ -86,8 +114,8 @@ export class Login extends Component {
       <div className='login_background'>
         <marquee>**Get Delivery free for *first <b>3</b> orders</marquee>
       <div className='login'>
-        <div class="sign">
-      <span class="fast-flicker">DE</span>lic<span class="flicker">iO</span>us
+        <div className="sign">
+      <span className="fast-flicker sm">DE</span><span className='sm'>lic</span><span class="flicker sm">iO</span><span className='sm'>us</span>
     </div>
         <div className='login_form'>
         <div className='textLogin'>Login/SignUp</div>
@@ -112,7 +140,9 @@ export class Login extends Component {
         </>: null
         }
         {
-            this.state.login ==='register' ? <><form action='#'>
+            this.state.login ==='register' ? <>
+            <span className='badcredentials' style={{color:this.state.regcolor}}>{this.state.registermsg}</span>
+            <form action='#'>
             <p>
                 <label htmlFor='emailr'>Email:</label>
                 <input id='emailr' onChange={this.signUpEmailHandler}/>
@@ -123,11 +153,14 @@ export class Login extends Component {
             </p>
             <p>
                 <label htmlFor='passwordcr'>Confirm Password:</label>
-                <input id='passwordcr' onChange={this.cnfPassHandler}/>
+                <input id='passwordcr' value={this.state.signUpcnfPass} onChange={this.cnfPassHandler}/>
                 <p style={{color:this.state.color}}>{this.state.passwordMatched}</p>
             </p>
             <button onClick={this.registerDataHandler}>Register</button>
-            </form></> : null
+            </form>
+            <div>
+                <a href='#12' onClick={this.toLogin}>Login</a>
+            </div></> : null
         }
         </div>
       </div>

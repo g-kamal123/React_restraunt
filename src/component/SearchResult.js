@@ -14,7 +14,7 @@ export class SearchResult extends Component {
             <li onClick={ () => { this.showRest(item.id,item) } }> <div className='card'>
             <div className='image_cuisine'>
             <img src={item.image} alt=''/>
-            <span>{item.cuisine}</span>
+            <span>{item.cuisine_type}</span>
             </div>
             <div className='restrauntName_address'>
                 <span className='name' >{item.name}</span>

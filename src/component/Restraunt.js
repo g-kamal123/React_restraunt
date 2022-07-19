@@ -8,7 +8,7 @@ import Navbar from './Navbar'
 export class Restraunt extends Component {
     state = {
         id:0,
-        page:'home',
+        page:'',
         pageArr:[],
         image:'',
         restDetail:[],
@@ -45,11 +45,22 @@ export class Restraunt extends Component {
             page:'home'
         })
     }
+    goToHome =(event)=>{
+        this.setState({
+            page:'home'
+        })
+    }
+    goToLogin =(event)=>{
+        this.setState({
+            page:''
+        })
+    }
   render() {
     return (
       <div>
         {
-        this.state.page==='home'|| this.state.page==='page' ? <Navbar /> : null
+        this.state.page==='home'|| this.state.page==='page' ? <Navbar home={this.goToHome}
+        logout={this.goToLogin}/> : null
         }
         {
             this.state.page==='' ? <Login goToSearchPage={this.checkSearchPage}/> : null

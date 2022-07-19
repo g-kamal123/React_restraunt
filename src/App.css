@@ -1,9 +1,49 @@
 *,*::after,*::before{
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 body{
   margin: 0;
   background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url('https://www.onlinekaka.com/upload/onlinekaka.com/1609855375-4252349.jpg');
+  /* background-repeat: no-repeat; */
+  /* width: 100vw; */
+}
+@media screen and (max-width:660px){
+  body{
+    width: 100%;
+  }
+  .login{
+    display: flex;
+    justify-content: flex-start;
+    /* overflow-x: hidden; */
+    /* width: 100%; */
+  }
+  form p label,input{
+    display: flex;
+    flex-direction: column;
+    /* background-color: #6b1839; */
+    gap: 2rem;
+  }
+  .sign .sm{
+    /* flex-wrap: wrap; */
+    /* display: none; */
+    /* background-color: #6b1839; */
+    font-size: 2.5rem;
+  }
+  .navbar{
+    flex-direction: column;
+    /* width: 100%; */
+    overflow-x: hidden;
+  }
+  .resultLists{
+    /* width: 120%; */
+    min-height: auto;
+    overflow-x: hidden;
+  }
+  .restrauntName_address{
+    height: 5vh;
+  }
+  
 }
 .card{
   display: flex;
@@ -56,18 +96,30 @@ td{
   /* flex-wrap: wrap; */
 }
 .page{
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 1rem;
+  flex-wrap: wrap;
 }
-.page_image img{
+.page_image{
   height: 25rem;
-  width: 25rem;
-  border: 1px solid black;
+  position: relative;
+  /* margin-top: 4.1%; */
+  border-radius: 10px;
 }
 .page_show{
   background-color: black;
   color: white;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.opshours{
+  font-size: 2rem;
+  font-weight: bolder;
 }
 .page_rest{
   font-size: larger;
@@ -75,10 +127,33 @@ td{
   flex-direction: column;
   gap: 0.7rem;
   flex:1 0 0;
+  position: absolute;
+  bottom: 4%;
+  padding-left: 2%;
+  flex-wrap: wrap;
 }
 .page_rest .name{
   font-size: 2rem;
   font-weight: bold;
+}
+.reviews_parent{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  /* justify-content: center; */
+  align-items: center;
+  margin-bottom: 4%;
+}
+.reviews{
+  box-shadow: 0 4px 8px rgb(0,0,0,0.5);
+  padding: 2%;
+  border-radius: 15px;
+  width: 90%;
+}
+.reviews .name{
+  font-size: 1.8rem;
+  margin-right: 2%;
 }
 .page_rest .address{
 
@@ -95,6 +170,8 @@ th{
   gap: 2rem;
   align-items: center;
   margin-left: 0;
+  flex-wrap: wrap;
+  /* flex:0 1 0; */
 }
 .textLogin{
   font-size: 1.8rem;
@@ -428,6 +505,10 @@ form button:hover{
 } */
 .searchResult{
   background-image: url('https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png');
+  background-repeat: 'no-repeat';
+  /* background-position: 'center'; */
+  background-size: 100vw;
+  /* overflow: hidden; */
   height: 50vh;
   display: flex;
   justify-content:center;
@@ -435,6 +516,7 @@ form button:hover{
   flex-direction: column;
   position: relative;
   width: 100vw;
+  /* overflow-x: hidden; */
 }
 .searchInput{
   position: relative;
@@ -467,6 +549,7 @@ form button:hover{
 }
 .cardname{
   color: rgb(26, 24, 24);
+  /* opacity: 1; */
   font-size: 1.4rem;
   font-weight: 800;
   display: flex;

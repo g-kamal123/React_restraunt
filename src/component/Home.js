@@ -19,7 +19,7 @@ export class Home extends Component {
                         name:Data[item][i].name,
                         image:Data[item][i].photograph,
                         address:Data[item][i].address,
-                        cuisine:Data[item][i].cuisine_type
+                        cuisine_type:Data[item][i].cuisine_type
                     }
                 nameMatched = [...nameMatched,c]
                 }
@@ -30,7 +30,7 @@ export class Home extends Component {
                         name:Data[item][i].name,
                         image:Data[item][i].photograph,
                         address:Data[item][i].address,
-                        cuisine:Data[item][i].cuisine_type
+                        cuisine_type:Data[item][i].cuisine_type
                     }
                 nameMatched = [...nameMatched,c]
                 }
@@ -41,7 +41,7 @@ export class Home extends Component {
                         name:Data[item][i].name,
                         image:Data[item][i].photograph,
                         address:Data[item][i].address,
-                        cuisine:Data[item][i].cuisine_type
+                        cuisine_type:Data[item][i].cuisine_type
                     }
                 nameMatched = [...nameMatched,c]
                 }
